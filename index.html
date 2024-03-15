@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./favicon/favicon_io/apple-touch-icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>Fun Website ®️®️®️😘</title>
+    
+</head>
+<body>
+    <div class="center"></div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+   <script>
+     var rect=  document.querySelector(".center");
+     rect.addEventListener("mousemove", function(details){
+        var mouselocations = rect.getBoundingClientRect();
+        var inside =  details.clientX  -  mouselocations.left;
+
+        if(inside < mouselocations.width/2 ){
+           var redcolor= gsap.utils.mapRange(0, mouselocations.width/2, 255, 0, inside);
+           
+           
+           gsap.to(rect, {
+            backgroundColor: `rgb(${redcolor}, 0, 0)`,
+            ease: Power4
+           });
+        }
+        else{
+          var blueCoro= gsap.utils.mapRange(mouselocations.width/2, mouselocations.width, 0, 255, inside);
+           
+           
+           gsap.to(rect, {
+            backgroundColor: `rgb(0, 0, ${blueCoro})`,
+            ease: Power4
+           });
+        }
+
+           
+        gsap.utils.maprange(0, 250, 255, 0, 23);
+     })
+
+
+     rect.addEventListener("mouseleave", function(){
+      gsap.to(rect, {
+        backgroundColor: "white"
+      })
+     })
+
+
+   </script>
+
+
+
+
+</body>
+</html>
